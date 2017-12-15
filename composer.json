@@ -1,0 +1,15 @@
+{
+    "name": "luffyzhao/php-amapWeb",
+    "authors": [
+        {
+            "name": "luffyzhao",
+            "email": "luffyzhao@vip.126.com"
+        }
+    ],
+    "require": {
+        "wenpeng/curl": "*"
+    },
+    "autoload": {
+        "psr-4": {"luffyzhao\\amapWeb\\": "src/"}
+    }
+}
