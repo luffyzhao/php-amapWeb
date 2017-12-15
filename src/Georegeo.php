@@ -91,8 +91,6 @@ class Georegeo
                 $batchs = [];
             }
         }
-
-        $this->_batchrequest($batchs);
     }
     /**
      * 批量请求接口
