@@ -110,7 +110,11 @@ class Georegeo
             foreach ($content as $index => $geores) {
                 if ($geores['status'] === 200) {
                     foreach ($geores['body']['geocodes'] as $key => $value) {
-                        $this->_address[$batchs[$index]['keys'][$key]]->setLocation(explode(',', $value['location']));
+                        if(!empty($value['location'])){
+                            $this->_address[$batchs[$index]['keys'][$key]]->setLocation(explode(',', $value['location']));
+                        }else{
+                            $this->_address[$batchs[$index]['keys'][$key]]->setLocation([0,0]);
+                        }
                     }
                 }
             }
