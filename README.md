@@ -4,14 +4,13 @@
 
 ```
   composer require luffyzhao/php-amap-web
-
 ```
 
 ### 使用方法
 
 #### 地理编码API
 
-```
+```php
   include __DIR__ . '/../vendor/autoload.php';
 
   use \luffyzhao\amapWeb\Georegeo;
