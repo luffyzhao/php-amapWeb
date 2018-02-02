@@ -1,9 +1,7 @@
 <?php
+
 namespace luffyzhao\amapWeb;
 
-/**
- *
- */
 class Address
 {
     // 原始数据
@@ -17,23 +15,41 @@ class Address
     public function __construct(array $data, array $config)
     {
         $this->_data = $data;
-        $this->_config = array_merge($this->_config, $config);
+        $this->_config = \array_merge($this->_config, $config);
     }
+
     /**
      * 获取地址
+     *
      * @method   getAddress
      * @DateTime 2017-12-15T12:15:14+0800
-     * @return   [type]                   [description]
+     *
+     * @return [type] [description]
      */
     public function getAddress()
     {
-        return str_replace(['|', ' '], '', $this->_data[$this->_config['addressKey']]);
+        return $this->replaceSpecialChar($this->_data[$this->_config['addressKey']]);
     }
+
     /**
-     * 设置位置
+     * 正则表达式过滤特殊的字符
+     * @param  [type] $strParam [description]
+     * @return [type]           [description]
+     */
+    public function replaceSpecialChar($strParam)
+    {
+        $regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
+
+        return \preg_replace($regex, '', $strParam);
+    }
+
+    /**
+     * 设置位置.
+     *
      * @method   setLocation
      * @DateTime 2017-12-15T12:16:34+0800
-     * @param    [type]                   $location [description]
+     *
+     * @param [type] $location [description]
      */
     public function setLocation(array $location)
     {
